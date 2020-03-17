@@ -1,0 +1,8 @@
+version: '3'
+services:
+  fah:
+    build: .
+    image: moaikids/fah:latest
+    container_name: fah
+
+
