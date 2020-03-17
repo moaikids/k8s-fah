@@ -8,10 +8,7 @@ RUN wget https://download.foldingathome.org/releases/public/release/fahclient/de
 RUN dpkg -i --force-depends fahclient_7.5.1_amd64.deb
 
 ADD config.xml /etc/fahclient/config.xml
+ADD entrypoint.sh /etc/fahclient/entrypoint.sh
 
 WORKDIR /var/lib/fahclient
-CMD	["/usr/bin/FAHClient", \
-	"--config", "/etc/fahclient/config.xml", \
-	"--config-rotate=false", \
-	"--gpu=true", \
-	"--pid-file=/var/run/fahclient.pid"]
+CMD	["/etc/fahclient/entrypoint.sh"]
